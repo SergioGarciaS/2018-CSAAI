@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <title>Pac-man</title>
+        <style>
+            body {
+                background-image: url("bg.jpeg");
+                height: 100%;
+                width: 100%;
+            }
+            .container{
+                display: block;
+                position: absolute;
+                margin-top: 30%;
+                margin-left:62%;
+                width: 40%;
+                height: 40%;
+                transform: translate(-80%, -80%);
+            }
+            p{
+                position: relative;
+                font-family: italic;
+                margin-left: 0px;
+            }
+            .titulo{
+              position: absolute;
+              margin-top: 0px;
+              margin-left:30%;
+            }
+            .mainslider{
+              display: block;
+              position: fixed;
+              margin-top: 20px;
+              margin-bottom: 10px;
+              width: 320px;
+              height: 100px;
+              padding : 10px;
+              background-color: grey;
+              border: black 10px solid;
+            }
+            .central{
+              display: block;
+              position: fixed;
+              position: absolute;
+              width:50%;
+              height: 100%;
+              margin-left: 25%;
+
+            }
+            #div1{
+              width: 110px;
+              height: 110px;
+              margin-top: 30px;
+              margin-left : 90px;
+              padding : 10px;
+              background-color: black;
+              border: yellow 10px solid;
+            }
+            /* .central2{
+              position: absolute;
+              width:500px;
+              margin-left: 50%;
+
+            }  */
+            #playB{
+              width: 80px;
+              height: 80px;
+            }
+            #timer{
+              font-family: 'Press Start 2P', cursive;
+              font-size : 20px;
+              color : yellow;
+              padding-top: 50px;
+              padding-left: 10px;
+              padding-right: 10px;
+              height: 70px;
+              width: 320px;
+              background-color: black;
+              border: yellow 10px solid;
+            }
+            .Typ{
+              background-image: url("maquina.png");
+              display:inline-block;
+              float: right;
+              align-items: flex-start;
+            }
+            .Aside{
+              display:inline-block;
+              float: left;
+            }
+            .highscores{
+              font-family: 'Press Start 2P', cursive;
+              display: block;
+              position: fixed;
+              background-color: #063a79;
+              height: 400px;
+              width: 300px;
+              margin-top: 380px;
+              border: #0c65d3 10px solid;
+            }
+            h1{
+              font-size : 16px;
+              margin-top: 50px;
+            }
+            p{
+              font-family: 'Press Start 2P', cursive;
+              color :white;
+            }
+        </style>
+    </head>
+    <body>
+      <div id = "General">
+
+      </div>
+    <div class="Aside">
+      <p id="timer"> YOUR TIME <span id="counter">0:0:0</span></p>
+      <img id = "playB" src = "./play1.png" onclick="buttonStart()">
+      <img id = "playB" src = "./play_b1.png" onclick="buttonPause()">
+      <div class="mainslider">
+        <div class="añadidos">
+          <img id="drag1" draggable="true" ondragstart="drag(event)" src="pacman_blue.png" width="100px" height="100px">
+          <img id="drag2" draggable="true" ondragstart="drag(event)" src="pacman_green.png" width="100px" height="100px">
+          <img id="drag3" draggable="true" ondragstart="drag(event)" src="pacman_red.png" width="100px" height="100px">
+        </div>
+        <!-- <img id="drag4" draggable="true" ondragstart="drag(event)" src="pacman.png" width="100px" height="100px"> -->
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img id="drag4" draggable="true" ondragstart="drag(event)" src="pacman.png" width="100px" height="100px">
+        </div>
+      </div>
+      <div class="highscores">
+        <h1>Local Highscore</h1>
+            <p id = "Local_HC"></p>
+        <h1>Session Highscore</h1>
+            <p id = "Session_HC"></p>
+      </div>
+
+      </div>
+    </div>
+
+      <div class="TyP">
+        <div class="titulo">
+            <img src = "./title.png">
+            <img src="./Start.gif" alt=""width="615" height="360">
+
+        </div>
+        <canvas class = "container" id="game" width="700" height="510"></canvas>
+        <!-- <img src="./Start.gif" alt=""width="400" height="310"> -->
+
+      </div>
+
+        <script type="text/javascript" src="comecocos.js">
+
+
+        </script>
+    </body>
+</html>
