@@ -1,0 +1,3 @@
+para id =========> #id SOLO SIRVE PARA UNO!!! ES MEJOR NO UTILIZAR.
+para class ========> .class
+etiqueta ==== = ===> etiqueta
