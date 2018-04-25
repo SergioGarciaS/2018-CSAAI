@@ -1,0 +1,28 @@
+
+canvas {
+    background-color: black;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+h2, #IMG_TAB {
+  text-align: center;
+}
+
+#choose {
+  text-align: center;
+  color: black;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  font-size: 20px;
+  font-family: arial;
+}
+#videochroma {
+  height: 10%;
+  width: 10%;
+}
