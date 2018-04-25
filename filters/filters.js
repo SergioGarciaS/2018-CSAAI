@@ -8,7 +8,7 @@ function CargarCanvas() {
   console.log(image);
 }
 
-function cargar() {
+function cargar() { //FUNCIÓN PRINCIPAL DEL PROGRAMA.
     CargarCanvas();
 }
 function select_photo(x) { // ESTE ES EL SELECTOR: COLOCA LA IMAGEN EN EL CANVAS.
