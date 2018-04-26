@@ -234,7 +234,7 @@ var gameArea = {
         var score = new TextComponent("30px", "Arial", 0, 27, "pink");
         pacman.scoreCount = 0; //añadimos scoreCount a pacman, facilidad posterior en choques
         score.text = "SCORE: " + pacman.scoreCount;
-        // if (window.confirm("VAMOS A EMPEZAR A JUGAR O NO CARATUERCA?") == true) {
+        // if (window.confirm("VAMOS A EMPEZAR A JUGAR O NO") == true) {
         //     openingSound.stop();
             var soundtrack = new Sound("PacmanDubstepRemix.mp3");
             soundtrack.play();
@@ -247,6 +247,7 @@ var gameArea = {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
     stop : function() {
+
         console.log("PASO POR EL STOP AUNQUE HAGO LO QUE QUIERO:")
         clearInterval(this.updateGameInterval);
         clearInterval(countingInterval);
@@ -378,14 +379,14 @@ function crashWithMapControl(mapa, obj, isPlayer) {
         var anchura = Math.floor((obj.x)/mapa.basicWidth);
         mapa.gameAreaMatrix[Math.floor((obj.y+5)/mapa.basicHeight)][Math.floor((obj.x)/mapa.basicWidth)] = 0;
         obj.fruit = true;
-        var eat = new Sound("chewbacca2.mp3");
+        var eat = new Sound("chewbacca.mp3");
         eat.play();
         random = Math.round(Math.random()*5);
         setTimeout(function(){mapa.gameAreaMatrix[altura][anchura]=4;},(1000*random))
     }
     return crashed;
 }
-function paco (a){ // ESTO VUELVE AL ESTADO ORIGINAL LOS PHANTASMAS
+function ghostReplace (a){ // ESTO VUELVE AL ESTADO ORIGINAL LOS PHANTASMAS
   mansana = window.setTimeout(function jejejej(){
     a[0].gameElement.src = "./blueGhost.png";
     a[1].gameElement.src = "./redGhost.png";
@@ -413,7 +414,7 @@ function hideimage(id){
     }
   }
 
-  if (window.confirm("VOLVER A EMPEZAR A JUGAR O NO CARATUERCA?") == true) {
+  if (window.confirm("VOLVER A EMPEZAR A JUGAR O NO?") == true) {
       location.reload(true);
     }
 }
@@ -466,7 +467,7 @@ function updateGame(mapa, pacman, ghostsArray, score) {
           element.alive = false; // ¿se lo comieron?
       });
 
-      if (window.confirm("Perdiste CARASTACA!, ¿juegas maś?") == true) {
+      if (window.confirm("Perdiste!, ¿juegas maś?") == true) {
           location.reload(true);
           console.log(ghostsArray);
       }
@@ -494,7 +495,7 @@ function updateGame(mapa, pacman, ghostsArray, score) {
             element.gameElement.src = "oldGhost.gif";
             element.weak = true;
             window.clearTimeout(mansana);
-            paco(ghostsArray);
+            ghostReplace(ghostsArray);
 
         }
         if (pacman.fruit && !element.weak){
@@ -502,7 +503,7 @@ function updateGame(mapa, pacman, ghostsArray, score) {
             element.rote();
             element.gameElement.src = "oldGhost.gif";
             element.weak = true;
-            paco(ghostsArray);
+            ghostReplace(ghostsArray);
         }
 
         if (crash(element, pacman)){
