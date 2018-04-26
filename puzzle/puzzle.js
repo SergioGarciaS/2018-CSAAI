@@ -41,7 +41,7 @@ function init(src){
   drawTiles();
 }
 
-function onImage(e){
+function onImage(e){ // "Corta la imagen."
   pieceWidth = Math.floor(img.width / tileCount)
   pieceHeight = Math.floor(img.height / tileCount)
   puzzleWidth = pieceWidth * tileCount;
@@ -120,12 +120,12 @@ function start_counting(){
 
 
 
-document.getElementById('puzzle').onclick = function(e) {
+document.getElementById('puzzle').onclick = function(e) {//Aqui sabemos donde has pulsado en la pantalla
   //this.offsetLeft ES DONDE ESÁ COLOCADO A LA DERECHA
   //this.offsetTop ES DONDE ESTÁ COLOCADO HACIA ABAJO
   clickLoc.x = Math.floor((e.pageX - this.offsetLeft) / pieceWidth);
   clickLoc.y = Math.floor((e.pageY - this.offsetTop) / pieceHeight);
-  if (distance(clickLoc.x, clickLoc.y, emptyLoc.x, emptyLoc.y) == 1) {
+  if (distance(clickLoc.x, clickLoc.y, emptyLoc.x, emptyLoc.y) == 1) { //Ver si la de al lado esta vacía.
     slideTile(emptyLoc, clickLoc);
     drawTiles();
   }
@@ -143,7 +143,7 @@ document.getElementById('puzzle').onclick = function(e) {
   }
 };
 
-function setBoard() {
+function setBoard() { //Crear el tablero.
   boardParts = new Array(tileCount);
   for (var i = 0; i < tileCount; ++i) {
     boardParts[i] = new Array(tileCount);
@@ -158,7 +158,7 @@ function setBoard() {
   solved = false;
 }
 
-function drawTiles() {
+function drawTiles() {  //Dibujar cada vez que lo movemos.
   context.clearRect ( 0 , 0 , puzzleWidth , puzzleHeight );
   for (var i = 0; i < tileCount; ++i) {
     for (var j = 0; j < tileCount; ++j) {
@@ -173,7 +173,7 @@ function drawTiles() {
   }
 }
 
-function slideTile(toLoc, fromLoc) {
+function slideTile(toLoc, fromLoc) { //Cambiamos la pieza.
   if (!solved) {
     boardParts[toLoc.x][toLoc.y].x = boardParts[fromLoc.x][fromLoc.y].x;
     boardParts[toLoc.x][toLoc.y].y = boardParts[fromLoc.x][fromLoc.y].y;
