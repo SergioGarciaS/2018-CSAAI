@@ -295,18 +295,21 @@ function buttonStart(){
 function keyHandler(event, pacman) {
 
     switch(event.key) {
+        //case "KeyW":
         case "ArrowUp":
             pacman.speed = 2;
             pacman.angle = Math.PI/2;
             pacman.viewAngle = -Math.PI/2;
             pacman.rote();
             break;
+        //case "KeyS":
         case "ArrowDown":
             pacman.speed = 2;
             pacman.angle = -Math.PI/2;
             pacman.viewAngle = Math.PI/2;
             pacman.rote()
             break;
+        //case "KeyA":
         case "ArrowLeft":
             pacman.speed = 2;
             pacman.angle = Math.PI;
@@ -314,6 +317,7 @@ function keyHandler(event, pacman) {
             pacman.rote()
             break;
         case "ArrowRight":
+        //case "KeyD":
             pacman.speed = 2;
             pacman.angle = 0;
             pacman.viewAngle = 0;
