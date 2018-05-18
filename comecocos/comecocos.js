@@ -83,14 +83,29 @@ var start = 0;
 var random;
 var mansana;
 var maxTime = 300;
-
+var cortar = setInterval(function(){console.log("JARABE DE PALO"); pause = false},5000);
 
 
 function buttonPause (){
     if (!pause){
       pause = true;
+      var win = document.createElement("img");
+      win.src = "banner.png";
+      win.id = "publi";
+      win.width = window.innerWidth;
+      win.height = window.innerHeight;
+      document.getElementById("banner").appendChild(win);
     }else{
       pause = false;
+      var cell = document.getElementById("banner");
+
+      if ( cell.hasChildNodes() )
+      {
+        while ( cell.childNodes.length >= 1 )
+        {
+          cell.removeChild( cell.firstChild );
+        }
+      }
     }
 }
 
@@ -238,7 +253,10 @@ var gameArea = {
         //     openingSound.stop();
             var soundtrack = new Sound("PacmanDubstepRemix.mp3");
             soundtrack.play();
+            this.updateBannerInterval = setInterval(function(){buttonPause (); },4000);
+            // updateBannerInterval = setInterval(function(){cortar; pause = true; updateBannerInterval},10000); // VER ARRIBA LA FUNCION EN LAS VARIABLES DE CORTAR.
             this.updateGamupdateGameeInterval = setInterval(function(){if (!pause){updateGame(gameMatrix, pacman, ghostsArray, score)}}, 20);
+            // pause = false;
             countingInterval = setInterval(function(){if (!pause){start_counting()}}, 1000);
 
         // }
@@ -280,6 +298,8 @@ function leerpuntuaciones(){
 function buttonStart(){
     // gameArea.clear();
     leerpuntuaciones();
+
+
     if (start > 0){
       location.reload(true);
     }else{
