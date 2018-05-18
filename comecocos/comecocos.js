@@ -92,8 +92,9 @@ function buttonPause (){
       var win = document.createElement("img");
       win.src = "banner.png";
       win.id = "publi";
-      win.width = window.innerWidth;
-      win.height = window.innerHeight;
+      win.width = 100;
+      win.height = 100;
+      win.margin = 50;
       document.getElementById("banner").appendChild(win);
     }else{
       pause = false;

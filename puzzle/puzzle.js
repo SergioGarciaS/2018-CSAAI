@@ -96,7 +96,7 @@ function displayID(clicked){
   init(change);
   clicked.src = document.getElementById("imageType").src;
 	document.getElementById("imageType").src = change + ".jpg";
-  clearInterval(countingInterval); // para iniciar mi contador de nuevo
+    clearInterval(countingInterval); // para iniciar mi contador de nuevo
 	clearInterval(carouselInterval); // para iniciar mi slider
 	seconds = 0;
 	hours = 0;
